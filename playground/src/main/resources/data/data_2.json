@@ -1,0 +1,42 @@
+{
+    "university": {
+      "name": "Global Tech University",
+      "departments": [
+        {
+          "name": "Computer Science",
+          "courses": [
+            {
+              "course_id": "CS101",
+              "title": "Introduction to Programming",
+              "instructor": {
+                "name": "Dr. Emily Carter",
+                "email": "ecarter@gtu.edu"
+              }
+            },
+            {
+              "course_id": "CS202",
+              "title": "Data Structures",
+              "instructor": {
+                "name": "Dr. Mark Lee",
+                "email": "mlee@gtu.edu"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Mechanical Engineering",
+          "courses": [
+            {
+              "course_id": "ME101",
+              "title": "Introduction to Mechanics",
+              "instructor": {
+                "name": "Dr. Sarah Thompson",
+                "email": "sthompson@gtu.edu"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+  

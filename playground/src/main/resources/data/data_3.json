@@ -1,0 +1,39 @@
+{
+    "company": {
+      "name": "Tech Innovators Inc.",
+      "location": {
+        "city": "San Francisco",
+        "state": "California",
+        "country": "USA"
+      },
+      "employees": [
+        {
+          "id": 1,
+          "name": "Alice Johnson",
+          "role": "Software Engineer",
+          "projects": [
+            {
+              "name": "Project Alpha",
+              "deadline": "2025-06-30"
+            },
+            {
+              "name": "Project Beta",
+              "deadline": "2025-12-15"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Bob Smith",
+          "role": "Data Scientist",
+          "projects": [
+            {
+              "name": "Project Gamma",
+              "deadline": "2025-09-01"
+            }
+          ]
+        }
+      ]
+    }
+  }
+  

@@ -1,0 +1,21 @@
+  {
+    "id": 1,
+    "name": "Alice Johnson",
+    "age": 18,
+    "email": "alice@example.com",
+    "isStudent": true
+  }
+  {
+    "id": 2,
+    "name": "Bob Smith",
+    "age": 21,
+    "email": "bob@example.com",
+    "isStudent": true
+  }
+  {
+    "id": 3,
+    "name": "Charlie Davis",
+    "age": 25,
+    "email": "charlie@example.com",
+    "isStudent": false
+  }

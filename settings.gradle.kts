@@ -1,3 +1,6 @@
+plugins {
+    id("org.gradle.toolchains.foojay-resolver-convention") version "0.8.0"
+}
 /*
  * Copyright Amazon.com, Inc. or its affiliates.  All rights reserved.
  *
@@ -31,4 +34,5 @@ include(
     "test:partiql-randomized-tests",
     "test:sprout-tests",
     "examples",
+    "playground",
 )
