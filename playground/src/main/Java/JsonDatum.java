@@ -37,7 +37,7 @@ public class JsonDatum implements Datum {
             } else if (json.isJsonObject()) {
                 type = PType.struct();
             } else if (json.isJsonArray()) {
-                System.out.println("Array type is assigned");
+//                System.out.println("Array type is assigned");
                 type = PType.array();
             } else if (json.isJsonPrimitive()) {
                 var prim = json.getAsJsonPrimitive();

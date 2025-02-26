@@ -7,14 +7,15 @@ import org.partiql.planner.PartiQLPlanner;
 import org.partiql.spi.catalog.Session;
 import org.partiql.spi.types.PType;
 import org.partiql.spi.value.Datum;
-import software.amazon.awssdk.services.s3.endpoints.internal.Value;
 
 public class TestDatabase {
     public static void main(String[] args) {
-//        String query = "SELECT d.email FROM anything d WHERE d.name = 'Bob Smith'";
-////        String query = "SELECT d.university.departments.courses.title FROM data d WHERE d.university.departments.courses.id='CS101'";
-////        String query = "SELECT university.name FROM data";
-        String query = "SELECT d.company.employees[0].name FROM data AS d WHERE d.company.employees[0].id=1";
+        String query = "SELECT d.email FROM data_1 AS d WHERE d.name = 'Bob Smith'";
+//        String query = "SELECT d.university.departments.courses.title FROM data d WHERE d.university.departments.courses.id='CS101'";
+//        String query = "SELECT university.name FROM data";
+//        String query = "SELECT d.company.employees[0].name, d.company.employees[0].projects FROM data_3 AS d WHERE d.company.employees[0].id=1";
+
+        // Initiating functional parts of PartiQL engine
         PartiQLParser paser = PartiQLParser.standard();
         PartiQLPlanner planner = PartiQLPlanner.standard();
         PartiQLCompiler compiler = PartiQLCompiler.standard();
