@@ -15,6 +15,8 @@ public class TestDatabase {
 //        String query = "SELECT university.name FROM data";
 //        String query = "SELECT d.company.employees[0].name, d.company.employees[0].projects FROM data_3 AS d WHERE d.company.employees[0].id=1";
 
+//        String query = "SELECT t.a FROM {'a':1, 'b':2} AS t"; // LET query is not supported for now
+
         // Initiating functional parts of PartiQL engine
         PartiQLParser paser = PartiQLParser.standard();
         PartiQLPlanner planner = PartiQLPlanner.standard();

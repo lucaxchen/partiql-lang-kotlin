@@ -274,6 +274,7 @@ internal class PartiQLParserDefault : PartiQLParser {
         parser.reset()
         parser.removeErrorListeners()
         parser.interpreter.predictionMode = mode
+        println("!!!this line has been called!!!!")
         when (mode) {
             PredictionMode.SLL -> parser.errorHandler = BailErrorStrategy()
             PredictionMode.LL -> parser.addErrorListener(ParseErrorListener(listener))
