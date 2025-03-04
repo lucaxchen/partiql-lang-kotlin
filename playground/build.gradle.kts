@@ -25,6 +25,8 @@ dependencies {
     implementation(project(":partiql-planner"))
     implementation(project(":partiql-spi"))
     implementation(project(":partiql-cli"))
+    implementation(testFixtures(project(":partiql-spi")))
+
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.20")
     implementation("com.google.code.gson:gson:2.12.1")

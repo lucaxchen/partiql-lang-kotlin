@@ -14,9 +14,7 @@ import org.partiql.spi.errors.PErrorKind
 import org.partiql.spi.errors.PRuntimeException
 import org.partiql.spi.errors.Severity
 import org.partiql.spi.value.Datum
-
 import java.io.PrintStream
-
 import kotlin.jvm.Throws
 
 class Pipeline private constructor(
@@ -77,7 +75,23 @@ class Pipeline private constructor(
     }
 
     companion object{
-        fun default(out: PrintStream, config: Config):
+
+        fun default(out: PrintStream, config: Config): Pipeline {
+            return create(Mode.PERMISSIVE(), out, config)
+        }
+
+        fun strict(out: PrintStream, config: Config): Pipeline {
+            return create(Mode.STRICT(), out, config)
+        }
+
+        private fun create(mode: Mode, out: PrintStream, config: Config): Pipeline {
+            val listener = config.getErrorListener(out)
+            val ctx = Context.of(listener)
+            val parser = PartiQLParser.Builder().build()
+            val planner = PartiQLPlanner.builder().build()
+            val compiler = PartiQLCompiler.builder().build()
+            return Pipeline(parser, planner, compiler, ctx, mode)
+        }
     }
 
     class PipelineException(override val message: String?) : PRuntimeException(

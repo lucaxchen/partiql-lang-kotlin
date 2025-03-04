@@ -240,8 +240,8 @@ internal class MainCommand : Runnable {
         // Derive a `default catalog from stdin (or file streams)
         val stream = stream()
         val datum = if (stream != null) {
-            val reader = DatumReader.ion(stream)
-            val values = reader.readAll()
+            val reader = DatumReader.ion(stream) // For now, we only support ion format files as input files?
+            val values = reader.readAll() // if the input file is too big, it might cause some bugs
             when (values.size) {
                 0 -> Datum.nullValue()
                 1 -> values.first()
