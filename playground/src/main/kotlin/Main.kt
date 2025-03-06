@@ -1,3 +1,4 @@
+import org.partiql.ast.Statement
 import org.partiql.cli.ErrorCodeString
 import org.partiql.cli.pipeline.ErrorMessageFormatter
 import org.partiql.spi.catalog.Catalog
@@ -10,7 +11,6 @@ import org.partiql.spi.value.ValueUtils
 import java.io.File
 import org.partiql.spi.value.io.PartiQLValueTextWriter
 import org.partiql.spi.catalog.Name
-import software.amazon.awssdk.services.s3.endpoints.internal.Value.Str
 
 
 import java.io.InputStream
@@ -21,14 +21,23 @@ var dir: File? = null // manually give the File object
 var files: Array<File>? = null // manually give the files list
 var program: Pair<String?, File?>? = null
 var strict: Boolean = false
-const val SHEBANG_PREFIX = "#!"
 
 fun main() {
-    val statement: String = "SELECT * FROM {'a':1,'b':2, 'c': 2};"
+//    val statement: String = "SELECT t['a'] FROM <<{'a':2,'b':3, 'c':4}, [1,2,3]>> AS t"
 //    val statement: String = "SELECT t.a, b, c FROM << { 'a': 1 }, { 'a': 2 } >> AS t LET t.a * 2 AS b, t.a * 3 AS c;"
 //    val statement: String = "SELECT t.a FROM << { 'a': 1 , 'a': 3 }, { 'a': 2 , 'b': 2 } >> AS t;"
 //    val statement: String = "SELECT t.a FROM <<{ 'a': 1 , 'a': 3 }>> AS t;"
 //    val statement: String = "SELECT * FROM [1, 2, 3];"
+//    val statement: String = "SELECT t.a, c FROM <<{ 'a': 1 }, { 'b': 2 }>> AS t LET t.a * 2 AS c;"
+
+//    val statement: String = "SELECT t.a, r, c, d FROM <<{ 'a': 1 , 'b': 2}>> AS t, 3 AS r LET a+b AS c, 6 AS d"
+
+    val statement: String = "SELECT t.a, c FROM <<{ 'a': 1 , 'b': 2}>> AS t LET t.a*5 AS c"
+
+//    val statement: String = "SELECT t.a, t.b, c FROM <<'a':1, 'b': 2>> AS t LET 3 AS c"
+//    val statement: String = "SELECT t.a, t.b, c FROM <<'a':1, 'b':2>> As t LET 3 AS c"
+//    val statement: String = "SELECT t.x, t.y, new_val FROM ( SELECT A AS x, B AS y FROM <<{ 'A': 1, 'B': 2, 'C': 3}>> LET B + C AS new_val) AS t;"
+
     val config = getPipelineConfig()
     val pipeline = when (strict){
         true -> Pipeline.strict(System.out, config)

@@ -788,9 +788,10 @@ internal data class Rel(
             is Except -> visitor.visitRelOpExcept(this, ctx)
             is Limit -> visitor.visitRelOpLimit(this, ctx)
             is With -> visitor.visitRelOpWith(this, ctx)
+            // PLACEHOLDER FOR LET CLAUSE
             is Offset -> visitor.visitRelOpOffset(this, ctx)
-            is Project -> visitor.visitRelOpProject(this, ctx)
-            is Join -> visitor.visitRelOpJoin(this, ctx)
+            is Project -> visitor.visitRelOpProject(this, ctx) // May just use projection operator as LET clause implementation
+            is Join -> visitor.visitRelOpJoin(this, ctx) // May just CROSS JOIN operation as LET clause implem
             is Aggregate -> visitor.visitRelOpAggregate(this, ctx)
             is Exclude -> visitor.visitRelOpExclude(this, ctx)
             is Err -> visitor.visitRelOpErr(this, ctx)
